@@ -1,0 +1,44 @@
+Type System
+
+0.1 Basic Types
+	There are eight primitive types: byte, short, int, long, float, double, char, boolean. Additionally, every class represents a type.
+
+	assignment Rules:
+		- A is assignable to C if A is a subclass of C.
+
+0.2 Intersection Types
+	An intersection type is a type which represents the intersection of multiple types. For example, intersect<X, Y> represents anything that is instanceof both X and Y.
+
+	assignment Rules:
+		- A is assignable to intersect<X1, X2... Xn> if A is assignable to all X.
+		- intersect<X1, X2... Xn> is assignable to A if any X is assignable to A.
+
+0.3 Union Types
+	A union type is a type which represents the union of multiple types. For example, union<X, Y> represents a value which is either of type X or of type Y.
+
+	assignment Rules:
+		- A is assignable to union<X1, X2... Xn> if A is instanceof any X.
+		- union<X1, X2... Xn> is an assignable to A if all X are assignable to A.
+
+0.4 Function Types
+	A function type is a type which represents a function. It contains a list of argument types and a single return type. For example, Function<X : Y> represents a function which has one parameter which is instanceof X, and returns something which is instanceof Y.
+
+	assignment Rules:
+		- A is assignable to function<X1, X2... Xn : R> if A is a function type, A has the same number of parameters, all parameters of A are instanceof the corresponding X, and the return value of A is instanceof R.
+		- function<X1, X2... xn : R> is assignable to A if A is a function type, A has the same number of parameter, all X are instanceof the corresponding A parameter, and R is instanceof the return value of A.
+
+0.5 Generic Types
+	A generic type is a type with both an upper bound (X) and a lower bound (Y).
+
+	assignment Rules:
+	    - A is assignable to generic<X, Y> if A is assignable to X and Y is assignable to A.
+	    - generic<X, Y> is assignable to A if X is assignable to A and A is assignable to Y.
+
+0.6 The Null Type
+	There is a Null type, Null.
+
+	assignment Rules:
+		- A is assignable to Null if A is the null value
+
+	a note:
+		- Nullabe types can thus be implemented as union<Null, A>

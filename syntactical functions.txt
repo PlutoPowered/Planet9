@@ -1,0 +1,33 @@
+Binary Operators
++   : add
+-   : subtract
+*   : multiply
+/   : divide
+%   : remainder
+**  : pow
+<<  : shiftLeft
+>>  : shiftRight
+>>> : uShiftRight
+|   : or
+&   : and
+^   : xor
+
+Unary Operators:
+!   : not
+~   : not
+-   : negate
+
+Comparison Operators:
+==  : compareTo or equals
+<   : compareTo
+>   : compareTo
+<=  : compareTo
+>=  : compareTo
+
+List Syntax:
+val[args*]      : get
+val[args*] = x  : set
+val[x:y]        : slice
+
+Value Conversion:
+(X) val         : X cast()
